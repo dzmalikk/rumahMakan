@@ -150,8 +150,7 @@ if access == "A":
 
 		input("Tekan ENTER untuk kembali ke menu")
 
-	def memperbarui_harga_mkn(data_mkn):
-		print(f"{makanan}\nHarga = {data_mkn[makanan]['harga']}")
+	def memperbarui_harga_mkn(makanan):
 		harga_baru = input("Harga baru = ")
 		pilihanA = input("Apakah anda yakin untuk memperbarui menu (Y/N) ? = ")
 		if verify_ans(pilihanA):
@@ -160,8 +159,7 @@ if access == "A":
 		else:
 			print("Menu batal diperbarui")
 
-	def memperbarui_kode_mkn(data_mkn):
-		print(f"{makanan}\nKode = {data_mkn[makanan]['kode']}")
+	def memperbarui_kode_mkn(makanan):
 		kode_baru = input("Kode baru = ")
 		pilihanA = input("Apakah anda yakin untuk memperbarui menu (Y/N) ? = ")
 		if verify_ans(pilihanA):
@@ -170,8 +168,7 @@ if access == "A":
 		else:
 			print("Menu batal diperbarui")
 
-	def memperbarui_harga_mnm(data_mnm):
-		print(f"{minuman}\nHarga = {data_mnm[minuman]['harga']}")
+	def memperbarui_harga_mnm(minuman):
 		harga_baru = input("Harga baru = ")
 		pilihanA = input("Apakah anda yakin untuk memperbarui menu (Y/N) ? = ")
 		if verify_ans(pilihanA):
@@ -180,8 +177,7 @@ if access == "A":
 		else:
 			print("Menu batal diperbarui")
 
-	def memperbarui_kode_mnm(data_mnm):
-		print(f"{minuman}\nKode = {data_mnm[minuman]['kode']}")
+	def memperbarui_kode_mnm(minuman):
 		kode_baru = input("Kode baru = ")
 		pilihanA = input("Apakah anda yakin untuk memperbarui menu (Y/N) ? = ")
 		if verify_ans(pilihanA):
@@ -273,8 +269,6 @@ elif access == "B":
 		print("""
 [A] Tampilkan Menu
 [B] Mencari Menu
-[C] Memesan Makanan
-[D] Memesan Minuman
 [Q] Keluar
 			""")
 
@@ -318,18 +312,6 @@ elif access == "B":
 				print(f"{minuman}\nHarga = {harga}\nKode = {kode}")
 		input("Tekan ENTER untuk kembali ke menu")
 
-	def memesan_makanan():
-		system("cls")
-		print("----MEMESAN MAKANAN----")
-		memesan_makanan = input("Masukkan nama makanan yang akan dibeli = ")
-		result = searching_menu_mkn(memesan_makanan)
-		memesan_makanan_banyak = input("Berapa banyak yang akan dipesan = ")
-		if result:
-			nota = {data_mkn[makanan]['harga']}*memesan_makanan_banyak
-			print(f"{data_mkn[makanan]}\nJumlah = {memesan_makanan_banyak}")
-			print("Total = Rp %i"%(nota))
-		input("Tekan ENTER untuk kembali")
-
 	def check_inputB(pilihanB):
 		pilihanB = pilihanB.upper()
 		if pilihanB == "Q":
@@ -338,10 +320,6 @@ elif access == "B":
 			tampilkan_menu()
 		elif pilihanB == "B":
 			mencari_menu()
-		elif pilihanB == "C":
-			memesan_makanan()
-		elif pilihanB == "D":
-			pass
 
 	stop = False
 	while not stop:
